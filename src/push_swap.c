@@ -72,27 +72,19 @@ void    push_a(t_stack *stack_a, t_stack *stack_b)
 
     if (stack_b->size == 0)
         return;
-    
-    // Décaler les éléments de stack_b vers le bas
     i = stack_a->size;
     while (i > 0)
     {
         stack_a->array[i] = stack_a->array[i - 1];
         i--;
     }
-
-    // Ajouter le sommet de stack_a en haut de stack_b
     stack_a->array[0] = stack_b->array[0];
-
-    // Décaler les éléments de stack_a vers le haut
     i = 0;
     while (i < stack_b->size - 1)
     {
         stack_b->array[i] = stack_b->array[i + 1];
         i++;
     }
-
-    // Mettre à jour les tailles
     stack_b->size--;
     stack_a->size++;
 }
@@ -103,35 +95,23 @@ void push_b(t_stack *stack_a, t_stack *stack_b)
 
     if (stack_a->size == 0)
         return;
-    
-    // Décaler les éléments de stack_b vers le bas
     i = stack_b->size;
     while (i > 0)
     {
         stack_b->array[i] = stack_b->array[i - 1];
         i--;
     }
-
-    // Ajouter le sommet de stack_a en haut de stack_b
     stack_b->array[0] = stack_a->array[0];
-
-    // Décaler les éléments de stack_a vers le haut
     i = 0;
     while (i < stack_a->size - 1)
     {
         stack_a->array[i] = stack_a->array[i + 1];
         i++;
     }
-
-    // Mettre à jour les tailles
     stack_a->size--;
     stack_b->size++;
 }
 
-
-
-/* ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
-Le premier élément devient le dernier.*/
 void    rotate_a(t_stack *stack_a)
 {
     size_t i;

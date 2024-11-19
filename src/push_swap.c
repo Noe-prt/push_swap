@@ -16,26 +16,62 @@ int main(int argc, char **argv)
         free_stack(stack_b);
         return (1);
     }
-    print_stacks(stack_a, stack_b);
-    swap_a(stack_a);
-    print_stacks(stack_a, stack_b);
-    push_b(stack_a, stack_b);
-    push_b(stack_a, stack_b);
-    push_b(stack_a, stack_b);
-    print_stacks(stack_a, stack_b);
-    ra_rb(stack_a, stack_b);
-    print_stacks(stack_a, stack_b);
-    rra_rrb(stack_a, stack_b);
-    print_stacks(stack_a, stack_b);
-    swap_a(stack_a);
-    print_stacks(stack_a, stack_b);
-    push_a(stack_a, stack_b);
-    push_a(stack_a, stack_b);
-    push_a(stack_a, stack_b);
-    print_stacks(stack_a, stack_b);
-    free_stack(stack_a);
-    free_stack(stack_b);
+    //print_stacks(stack_a, stack_b);
+    push_swap(stack_a, stack_b);
+    //print_stacks(stack_a, stack_b);
     return (0);
+}
+
+void    push_swap(t_stack *stack_a, t_stack *stack_b)
+{
+    // TROUVER UN PUTAIN D'ALGO
+    size_t  i;
+    int instructions;
+    int min;
+    int j;
+
+
+    i = 0;
+    j = 0;
+    instructions = 0;
+    // 1 5 6 8 2
+    while (stack_a->size != 0)
+    {
+        i = 0;
+        min = stack_a->array[0];
+        while (i < stack_a->size)
+        {
+            if (stack_a->array[i] < min)
+            {
+                min = stack_a->array[i];
+                j = i;
+            }
+            i++;
+        }
+        while (stack_a->array[0] != min)
+        {
+            if ((stack_a->size - j) < stack_a->size / 2)
+            {
+                reverse_rotate_a(stack_a);
+                printf("rra\n");
+            }
+            else
+            {
+                rotate_a(stack_a);
+                printf("ra\n");
+            }
+            instructions++;  
+        }
+        push_b(stack_a, stack_b);
+        printf("pb\n");
+        instructions++;
+    }
+    while (stack_a->size != stack_a->capacity)
+    {
+        push_a(stack_a, stack_b);
+        printf("pa\n");
+        instructions++;
+    }
 }
 
 void    print_stacks(t_stack *stack_a, t_stack *stack_b)
@@ -66,50 +102,48 @@ void    sa_sb(t_stack *stack_a, t_stack *stack_b)
     swap_b(stack_b);
 }
 
-void    push_a(t_stack *stack_a, t_stack *stack_b)
+void	push_a(t_stack *stack_a, t_stack *stack_b)
 {
-    size_t i;
+	size_t	i;
 
-    if (stack_b->size == 0)
-        return;
-    i = stack_a->size;
-    while (i > 0)
-    {
-        stack_a->array[i] = stack_a->array[i - 1];
-        i--;
-    }
-    stack_a->array[0] = stack_b->array[0];
-    i = 0;
-    while (i < stack_b->size - 1)
-    {
-        stack_b->array[i] = stack_b->array[i + 1];
-        i++;
-    }
-    stack_b->size--;
-    stack_a->size++;
+	i = stack_a->size;
+	if (stack_b->size == 0)
+		return ;
+	while (i > 0)
+	{
+		stack_a->array[i] = stack_a->array[i - 1];
+		i--;
+	}
+	stack_a->array[0] = stack_b->array[0];
+	stack_a->size++;
+	stack_b->size--;
+	while (i < stack_b->size)
+	{
+		stack_b->array[i] = stack_b->array[i + 1];
+		i++;
+	}
 }
 
-void push_b(t_stack *stack_a, t_stack *stack_b)
+void	push_b(t_stack *stack_a, t_stack *stack_b)
 {
-    size_t i;
+	size_t i;
 
-    if (stack_a->size == 0)
-        return;
-    i = stack_b->size;
-    while (i > 0)
-    {
-        stack_b->array[i] = stack_b->array[i - 1];
-        i--;
-    }
-    stack_b->array[0] = stack_a->array[0];
-    i = 0;
-    while (i < stack_a->size - 1)
-    {
-        stack_a->array[i] = stack_a->array[i + 1];
-        i++;
-    }
-    stack_a->size--;
-    stack_b->size++;
+	i = stack_b->size;
+	if (stack_a->size == 0)
+		return ;
+	while (i > 0)
+	{
+		stack_b->array[i] = stack_b->array[i - 1];
+		i--;
+	}
+	stack_b->array[0] = stack_a->array[0];
+	stack_b->size++;
+	stack_a->size--;
+	while (i < stack_a->size)
+	{
+		stack_a->array[i] = stack_a->array[i + 1];
+		i++;
+	}
 }
 
 void    rotate_a(t_stack *stack_a)

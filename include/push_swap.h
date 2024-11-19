@@ -10,6 +10,7 @@ typedef struct s_stack {
     size_t capacity;
 } t_stack;
 
+void    push_swap(t_stack *stack_a, t_stack *stack_b);
 void    print_stacks(t_stack *stack_a, t_stack *stack_b);
 void    swap_a(t_stack *stack_a);
 void    swap_b(t_stack *stack_b);

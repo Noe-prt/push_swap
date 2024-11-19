@@ -6,6 +6,8 @@
         "string_view": "c",
         "initializer_list": "c",
         "utility": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "bitset": "c",
+        "regex": "c"
     }
 }

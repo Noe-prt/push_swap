@@ -1,9 +1,9 @@
 # Nom du fichier exécutable final
-NAME = a.out
+NAME = push_swap
 
 # Compilateur et options
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Dossiers
 SRC_DIR = src

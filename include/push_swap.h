@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct s_stack {
     int *array;
@@ -27,5 +28,10 @@ void    ft_swap(int *a, int *b);
 t_stack *init_stack(size_t capacity);
 void    free_stack(t_stack *stack);
 int     parse_args(int argc, char **argv, t_stack *stack_a);
+int get_target_b_value(int value, t_stack *stack_b);
+int get_target_a_value(int value, t_stack *stack_a);
+int get_push_cost(int value, int target_value, t_stack *stack_a, t_stack *stack_b);
+void rotate_stacks_to_top(int value, int target_value, t_stack *stack_a, t_stack *stack_b);
+void    move_min_value_on_top(t_stack *stack_a);
 
 #endif

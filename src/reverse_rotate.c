@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/21 17:11:22 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/21 17:11:23 by nopareti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	reverse_rotate_a(t_stack *stack_a)
@@ -36,9 +48,9 @@ void	reverse_rotate_b(t_stack *stack_b)
 	ft_putstr_fd("rrb\n", 1);
 }
 
-void    rra_rrb(t_stack *stack_a, t_stack *stack_b)
+void	rra_rrb(t_stack *stack_a, t_stack *stack_b)
 {
-    ft_putstr_fd("rra\n", 1);
-    reverse_rotate_a(stack_a);
-    reverse_rotate_b(stack_b);
+	ft_putstr_fd("rra\n", 1);
+	reverse_rotate_a(stack_a);
+	reverse_rotate_b(stack_b);
 }

@@ -8,6 +8,7 @@
         "utility": "c",
         "stdlib.h": "c",
         "bitset": "c",
-        "regex": "c"
+        "regex": "c",
+        "limits.h": "c"
     }
 }

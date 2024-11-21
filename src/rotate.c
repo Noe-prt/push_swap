@@ -2,7 +2,7 @@
 
 void    rotate_a(t_stack *stack_a)
 {
-    printf("ra\n");
+    ft_putstr_fd("ra\n", 1);
     int i;
     int temp;
 
@@ -20,7 +20,7 @@ void    rotate_a(t_stack *stack_a)
 
 void    rotate_b(t_stack *stack_b)
 {
-    printf("rb\n");
+    ft_putstr_fd("rb\n", 1);
     int i;
     int temp;
 
@@ -38,7 +38,7 @@ void    rotate_b(t_stack *stack_b)
 
 void    ra_rb(t_stack *stack_a, t_stack *stack_b)
 {
-    printf("rr\n");
+    ft_putstr_fd("rr\n", 1);
     rotate_a(stack_a);
     rotate_b(stack_b);
 }

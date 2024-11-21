@@ -1,9 +1,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
+#include <stdlib.h>
+#include <limits.h>
+#include "../Libft/libft.h"
 
 typedef struct s_stack {
     int *array;

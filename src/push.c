@@ -2,7 +2,7 @@
 
 void	push_a(t_stack *stack_a, t_stack *stack_b)
 {
-    printf("pa\n");
+    ft_putstr_fd("pa\n", 1);
 	int	i;
 
 	i = stack_a->size;
@@ -25,7 +25,7 @@ void	push_a(t_stack *stack_a, t_stack *stack_b)
 
 void	push_b(t_stack *stack_a, t_stack *stack_b)
 {
-    printf("pb\n");
+    ft_putstr_fd("pb\n", 1);
 	int i;
 
 	i = stack_b->size;

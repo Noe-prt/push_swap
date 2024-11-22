@@ -6,20 +6,23 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:31 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/21 17:11:32 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:34:58 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*init_stack(int capacity)
+t_stack	*init_stack(int capacity, char **argv)
 {
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	stack->array = malloc(sizeof(int) * capacity);
+	if (capacity == 1)
+		stack->array = malloc(sizeof(int) * ft_count_words(argv[1], 32));
+	else
+		stack->array = malloc(sizeof(int) * capacity);
 	if (!stack->array)
 	{
 		free(stack);
@@ -39,20 +42,37 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-int	parse_args(int argc, char **argv, t_stack *stack_a)
+int parse_args(int argc, char **argv, t_stack *stack_a)
 {
-	int	i;
-	int	num;
+    int i = 1;
+    int num;
+    char **splitted;
 
-	i = 1;
-	while (i < argc)
-	{
-		num = atoi(argv[i]);
-		stack_a->array[stack_a->size++] = num;
-		i++;
-	}
-	return (1);
+    if (argc == 2)
+    {
+        i = 0;
+        splitted = ft_split(argv[1], 32);
+		while (splitted[i])
+		{
+			if (ft_atoi(splitted[i]) == 0 && splitted[i][0] != '0')
+                return (0);
+			stack_a->array[i] = ft_atoi(splitted[i]);
+			i++;
+			stack_a->size++;
+		}
+        return (1);
+    }
+    while (i < argc)
+    {
+        if (!ft_str_isdigit(argv[i]))
+            return (0);
+        num = ft_atoi(argv[i]);
+        stack_a->array[stack_a->size++] = num;
+        i++;
+    }
+    return (1);
 }
+
 
 void	sort_three(t_stack *stack_a)
 {

@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:57:30 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/08 22:38:36 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:21:29 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int					ft_atoi(const char *str);
 int					ft_memcmp(const void *b1, const void *b2, size_t n);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
+int					ft_str_isdigit(char *str);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
+int					ft_count_words(const char *s, char c);
 int					ft_tolower(int c);
 int					ft_lstsize(t_list *lst);
 

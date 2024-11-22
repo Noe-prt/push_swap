@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:34 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/21 17:19:38 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:10:31 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int	get_push_cost(int value, int target_value, t_stack *stack_a,
 {
 	int	cost;
 	int	i;
-	int	rotations_a
+	int	rotations_a;
 	int	reverse_rotations_a;
-	int	rotations_b
+	int	rotations_b;
 	int	reverse_rotations_b;
 
 	cost = 0;

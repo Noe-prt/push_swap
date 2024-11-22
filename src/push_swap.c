@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:12 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/21 17:13:38 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:21:52 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stack_a = init_stack(argc - 1);
-	stack_b = init_stack(argc - 1);
+	stack_a = init_stack(argc - 1, argv);
+	stack_b = init_stack(argc - 1, argv);
 	if (!stack_a || !stack_b || !parse_args(argc, argv, stack_a))
 	{
+		ft_putstr_fd("Error\n", 1);
 		free_stack(stack_a);
 		free_stack(stack_b);
 		return (1);

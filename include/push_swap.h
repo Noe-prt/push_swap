@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:38 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/21 17:11:39 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:27:14 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../Libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -38,7 +39,7 @@ void	reverse_rotate_a(t_stack *stack_a);
 void	reverse_rotate_b(t_stack *stack_b);
 void	rra_rrb(t_stack *stack_a, t_stack *stack_b);
 void	ft_swap(int *a, int *b);
-t_stack	*init_stack(int capacity);
+t_stack	*init_stack(int capacity, char **argv);
 void	free_stack(t_stack *stack);
 int		parse_args(int argc, char **argv, t_stack *stack_a);
 int		get_target_b_value(int value, t_stack *stack_b);

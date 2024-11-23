@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:12 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 10:21:52 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/23 01:48:44 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,31 +57,10 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 
 void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	lower_push_cost;
 	int	value;
 	int	target_value;
-	int	push_cost;
 
-	i = 0;
-	value = stack_a->array[i];
-	target_value = get_target_b_value(value, stack_b);
-	push_cost = get_push_cost(value, target_value, stack_a, stack_b);
-	lower_push_cost = push_cost;
-	while (i < stack_a->size)
-	{
-		if (get_push_cost(stack_a->array[i],
-				get_target_b_value(stack_a->array[i], stack_b), stack_a,
-				stack_b) < lower_push_cost)
-		{
-			lower_push_cost = get_push_cost(stack_a->array[i],
-					get_target_b_value(stack_a->array[i], stack_b), stack_a,
-					stack_b);
-			value = stack_a->array[i];
-			target_value = get_target_b_value(stack_a->array[i], stack_b);
-		}
-		i++;
-	}
+	get_best_push(stack_a, stack_b, &value, &target_value);
 	rotate_stacks_to_top(value, target_value, stack_a, stack_b);
 	push_b(stack_a, stack_b);
 }

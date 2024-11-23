@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:34 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 10:10:31 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/23 01:41:49 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,36 +65,20 @@ int	get_target_a_value(int value, t_stack *stack_a)
 	return (closest_greater);
 }
 
-int	get_push_cost(int value, int target_value, t_stack *stack_a,
-					t_stack *stack_b) // REDUIRE !!!!
+int	get_push_cost(int value, int target_value,
+		t_stack *stack_a, t_stack *stack_b)
 {
-	int	cost;
-	int	i;
 	int	rotations_a;
 	int	reverse_rotations_a;
 	int	rotations_b;
 	int	reverse_rotations_b;
 
-	cost = 0;
-	i = 0;
-	while (stack_a->array[i] != value)
-		i++;
-	rotations_a = i;
-	reverse_rotations_a = stack_a->size - i;
-	i = 0;
-	while (stack_b->array[i] != target_value)
-		i++;
-	rotations_b = i;
-	reverse_rotations_b = stack_b->size - i;
-	if (rotations_a <= reverse_rotations_a)
-		cost += rotations_a;
-	else
-		cost += reverse_rotations_a;
-	if (rotations_b <= reverse_rotations_b)
-		cost += rotations_b;
-	else
-		cost += reverse_rotations_b;
-	return (cost);
+	rotations_a = get_rotations(stack_a, value);
+	reverse_rotations_a = stack_a->size - rotations_a;
+	rotations_b = get_rotations(stack_b, target_value);
+	reverse_rotations_b = stack_b->size - rotations_b;
+	return (get_min_cost(rotations_a, reverse_rotations_a)
+		+ get_min_cost(rotations_b, reverse_rotations_b));
 }
 
 void	rotate_stacks_to_top(int value, int target_value, t_stack *stack_a,

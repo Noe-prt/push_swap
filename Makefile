@@ -10,7 +10,7 @@ SRC_DIR = src
 LIBFT_DIR = Libft
 
 # Fichiers sources
-SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils_1.c $(SRC_DIR)/utils_2.c $(SRC_DIR)/swap.c $(SRC_DIR)/rotate.c $(SRC_DIR)/push.c $(SRC_DIR)/reverse_rotate.c
+SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils_1.c $(SRC_DIR)/utils_2.c $(SRC_DIR)/utils_3.c $(SRC_DIR)/swap.c $(SRC_DIR)/rotate.c $(SRC_DIR)/push.c $(SRC_DIR)/reverse_rotate.c
 OBJ = $(SRC:.c=.o)
 
 # Libft

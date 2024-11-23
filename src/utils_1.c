@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:31 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 10:34:58 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/23 01:20:07 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,30 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-int parse_args(int argc, char **argv, t_stack *stack_a)
+int	parse_args(int argc, char **argv, t_stack *stack_a)
 {
-    int i = 1;
-    int num;
-    char **splitted;
+	int	i;
+	int	num;
 
-    if (argc == 2)
-    {
-        i = 0;
-        splitted = ft_split(argv[1], 32);
-		while (splitted[i])
-		{
-			if (ft_atoi(splitted[i]) == 0 && splitted[i][0] != '0')
-                return (0);
-			stack_a->array[i] = ft_atoi(splitted[i]);
-			i++;
-			stack_a->size++;
-		}
-        return (1);
-    }
-    while (i < argc)
-    {
-        if (!ft_str_isdigit(argv[i]))
-            return (0);
-        num = ft_atoi(argv[i]);
-        stack_a->array[stack_a->size++] = num;
-        i++;
-    }
-    return (1);
+	i = 1;
+	if (argc == 2)
+	{
+		if (parse_single_str(argv[1], stack_a))
+			return (1);
+		return (0);
+	}
+	while (i < argc)
+	{
+		if (ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
+			return (0);
+		num = ft_atoi(argv[i]);
+		stack_a->array[stack_a->size++] = num;
+		i++;
+	}
+	if (has_dubble(stack_a->array, stack_a->size))
+		return (0);
+	return (1);
 }
-
 
 void	sort_three(t_stack *stack_a)
 {

@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:38 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 10:27:14 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/23 01:47:57 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../Libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -53,5 +52,11 @@ void	sort_three(t_stack *stack_a);
 void	sort_simples_cases(t_stack *stack_a);
 void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b);
 void	push_numbers_to_a(t_stack *stack_a, t_stack *stack_b);
+int		has_dubble(int *array, int size);
+int		parse_single_str(char *str, t_stack *stack_a);
+int		get_rotations(t_stack *stack, int value);
+int		get_min_cost(int rotations, int reverse_rotations);
+void	get_best_push(t_stack *stack_a, t_stack *stack_b,
+			int *best_value, int *best_target_value);
 
 #endif

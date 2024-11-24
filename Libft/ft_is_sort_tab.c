@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_isdigit.c                                   :+:      :+:    :+:   */
+/*   ft_is_sort_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 09:12:31 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 09:12:31 by nopareti         ###   ########.fr       */
+/*   Created: 2024/11/24 06:20:01 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/24 06:20:01 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_str_isdigit(char *str)
+int	ft_is_sort_tab(int *tab, int size)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
 	{
-		if (!ft_isdigit(*str))
+		if (tab[i] > tab[i + 1])
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_isdigit.c                                   :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 09:12:31 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/22 09:12:31 by nopareti         ###   ########.fr       */
+/*   Created: 2024/11/24 06:30:37 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/24 06:30:37 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_str_isdigit(char *str)
+void	ft_free_split(char **split)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (split[i])
 	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
+		free(split[i]);
+		i++;
 	}
-	return (1);
+	free(split);
 }

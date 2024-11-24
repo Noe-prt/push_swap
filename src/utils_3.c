@@ -41,14 +41,21 @@ int	parse_single_str(char *str, t_stack *stack_a)
 
 	i = 0;
 	splitted = ft_split(str, 32);
+	if (!splitted)
+		ft_free_split(splitted);
 	while (splitted[i])
 	{
-		if (ft_atoi(splitted[i]) == 0 && splitted[i][0] != '0')
+		if (ft_atoi(splitted[i]) == 2147483648
+			|| (ft_atoi(splitted[i]) == 0 && splitted[i][0] != '0'))
+		{
+			ft_free_split(splitted);
 			return (0);
+		}
 		stack_a->array[i] = ft_atoi(splitted[i]);
 		i++;
 		stack_a->size++;
 	}
+	ft_free_split(splitted);
 	if (has_dubble(stack_a->array, stack_a->size))
 		return (0);
 	return (1);

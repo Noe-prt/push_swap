@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:12 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/23 01:48:44 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/24 06:31:45 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	main(int argc, char **argv)
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
+	if (ft_is_sort_tab(stack_a->array, stack_a->size))
+		return ;
 	if (stack_a->size <= 3)
 	{
 		sort_simples_cases(stack_a);

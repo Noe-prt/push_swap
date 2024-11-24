@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:11:31 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/23 01:20:07 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/24 06:28:55 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	parse_args(int argc, char **argv, t_stack *stack_a)
 	while (i < argc)
 	{
 		if (ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
+			return (0);
+		if (ft_atoi(argv[i]) == 2147483648)
 			return (0);
 		num = ft_atoi(argv[i]);
 		stack_a->array[stack_a->size++] = num;

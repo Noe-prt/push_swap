@@ -50,7 +50,7 @@ Tester avec le checker :
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
 ```
 
-## 📊 Exemple de Sortie
+## 📊 Visualisation graphique de l'algorithme
 
 ![Exemple graphique de l'algorithme sur les deux piles](https://miro.medium.com/v2/resize:fit:1200/1*ZLKF3qJ75poRylB9g8wM5w.gif)
 
